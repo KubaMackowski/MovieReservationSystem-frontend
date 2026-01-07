@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Helvetica Neue", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #292E42FF;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.neumorphic-outset {
+  box-shadow: -5px -5px 10px rgba(46, 51, 68, 0.25), 5px 5px 10px rgba(18, 20, 28, 0.5);
+}
+.neumorphic-inset {
+  box-shadow: inset -3px -3px 6px rgba(46, 51, 68, 0.25), inset 3px 3px 6px rgba(18, 20, 28, 0.5);
+}
+.neumorphic-button-hover:hover {
+  box-shadow: -3px -3px 8px rgba(46, 51, 68, 0.25), 3px 3px 8px rgba(18, 20, 28, 0.5);
+}
+.neumorphic-button-active:active {
+  box-shadow: inset -2px -2px 4px rgba(46, 51, 68, 0.25), inset 2px 2px 4px rgba(18, 20, 28, 0.5);
+}
+.neumorphic-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: -6px -6px 12px rgba(46, 51, 68, 0.3), 6px 6px 12px rgba(18, 20, 28, 0.55);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
