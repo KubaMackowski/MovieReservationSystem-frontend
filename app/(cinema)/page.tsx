@@ -1,6 +1,5 @@
-import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
   return (
       <div className="mt-16">
         <h2 className="text-text-main text-3xl font-bold leading-tight tracking-tight px-4 pb-4 pt-5">Now Showing</h2>

@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: frontend-app
     ports:
       - "3000:3000"
     volumes:
@@ -12,3 +13,11 @@ services:
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
+      - BACKEND_URL=http://backend-api:8080
+    networks:
+      - default
+
+networks:
+  default:
+    name: movie-system-network
+    external: true

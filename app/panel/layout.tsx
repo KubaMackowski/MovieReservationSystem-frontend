@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./_components/sidebar/sidebar";
+import {getMe} from "@/lib/auth";
+import {redirect} from "next/navigation";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -18,11 +20,16 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
                                        children,
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const user = await getMe()
+
+    if (!user) {
+        redirect('/login')
+    }
     return (
         <html lang="pl">
         <head>
@@ -30,7 +37,7 @@ export default function RootLayout({
         </head>
         <body className="bg-background-dark text-gray-100 font-display transition-colors duration-200">
         <div className="flex h-screen w-full overflow-hidden">
-                        {Sidebar()}
+                        {Sidebar(user)}
                         {children}
         </div>
         </body>

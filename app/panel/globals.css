@@ -1,27 +1,39 @@
 @import "tailwindcss";
 @tailwind utilities;
 
-:root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Helvetica Neue", monospace;
-}
+@theme {
+    --color-primary: #7c3aed;
+    --color-primary-dark: #6d28d9;
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #292E42FF;
-        --foreground: #ededed;
-    }
+    --color-background-dark: #0f0e13;
+    --color-surface-dark: #18181b;
+    --color-surface-dark-hover: #27272a;
+    --color-border-dark: #27272a;
+
+    --font-display: "Inter", sans-serif;
+
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}::-webkit-scrollbar {
+     width: 8px;
+     height: 8px;
+ }
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
 }
 
-/* To jest poprawne, teraz zadziała dzięki importowi na górze */
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
