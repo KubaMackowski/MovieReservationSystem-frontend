@@ -13,11 +13,13 @@ export default function Sidebar(user: UserProfile) {
                         </div>
                     </div>
                     <nav className="flex flex-col gap-2">
-                        <Link className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/20" href="/panel/movies">
-                            <span className="material-symbols-outlined text-primary" data-weight="fill">movie</span>
-                            <p className="text-primary text-sm font-bold leading-normal">Movies</p>
+                        <Link className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-surface-dark-hover  transition-colors group"
+                              href="/panel/users">
+                            <span
+                                className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">movie</span>
+                            <p className="text-gray-400 group-hover:text-white text-sm font-medium leading-normal">Movies</p>
                         </Link>
-                        <Link className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-surface-dark-hover transition-colors group"
+                        <Link className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-surface-dark-hover  transition-colors group"
                            href="/panel/users">
                             <span
                                 className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">group</span>

@@ -1,8 +1,11 @@
-export default function Navbar() {
+import {UserProfile} from "@/types/user";
+import Link from "next/link";
+
+export default function Navbar(user: UserProfile | null = null) {
     return (
         <header
             className="flex items-center justify-between whitespace-nowrap p-5 neumorphic-outset rounded-xl bg-background sticky top-5 z-50">
-            <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-4">
                 <div className="h-8 w-8 text-primary">
                     <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -10,7 +13,7 @@ export default function Navbar() {
                     </svg>
                 </div>
                 <h2 className="text-text-main text-xl font-bold leading-tight tracking-tight">CineSoft</h2>
-            </div>
+            </Link>
             <nav className="hidden lg:flex items-center gap-9">
                 <a className="text-text-main text-sm font-medium leading-normal hover:text-primary transition-colors"
                    href="#">Now Showing</a>
@@ -22,14 +25,19 @@ export default function Navbar() {
                    href="#">Offers</a>
             </nav>
             <div className="flex items-center gap-3">
-                <button
-                    className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-background text-sm font-bold leading-normal tracking-wide neumorphic-button-hover neumorphic-button-active transition-all">
-                    <span className="truncate">Sign Up</span>
-                </button>
-                <button
-                    className="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full neumorphic-outset neumorphic-button-hover neumorphic-button-active transition-all">
-                    <span className="material-symbols-outlined text-text-main">person</span>
-                </button>
+                { user ? (
+                    <Link
+                        href="/panel"
+                        className="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full neumorphic-outset neumorphic-button-hover neumorphic-button-active transition-all">
+                        <span className="material-symbols-outlined text-text-main">person</span>
+                    </Link>
+                ) : (
+                    <Link
+                        href="/login"
+                        className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-background text-sm font-bold leading-normal tracking-wide neumorphic-button-hover neumorphic-button-active transition-all">
+                        <span className="truncate">Sign Up</span>
+                    </Link>
+                )}
             </div>
         </header>
     )

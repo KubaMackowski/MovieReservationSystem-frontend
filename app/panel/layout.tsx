@@ -27,7 +27,7 @@ export default async function RootLayout({
 }>) {
     const user = await getMe()
 
-    if (!user) {
+    if (!user || user.roles.indexOf('ADMIN') === -1) {
         redirect('/login')
     }
     return (

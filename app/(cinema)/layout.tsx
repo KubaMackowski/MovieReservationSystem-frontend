@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/navbar/navbar";
+import {getMe} from "@/lib/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,11 +20,13 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+    const user = await getMe()
+
   return (
     <html lang="pl">
     <head>
@@ -34,7 +37,7 @@ export default function RootLayout({
         <div className="flex h-full grow flex-col">
             <div className="flex flex-1 justify-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 py-5">
                 <div className="flex w-full max-w-7xl flex-col">
-                    {Navbar()}
+                    {Navbar(user)}
                     {children}
                 </div>
             </div>
