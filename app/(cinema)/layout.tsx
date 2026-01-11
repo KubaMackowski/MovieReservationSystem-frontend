@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/navbar/navbar";
 import {getMe} from "@/lib/auth";
+import Footer from "@/app/(cinema)/_components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default async function RootLayout({
                 <div className="flex w-full max-w-7xl flex-col">
                     {Navbar(user)}
                     {children}
+                    {Footer()}
                 </div>
             </div>
         </div>

@@ -14,16 +14,6 @@ export default function Navbar(user: UserProfile | null = null) {
                 </div>
                 <h2 className="text-text-main text-xl font-bold leading-tight tracking-tight">CineSoft</h2>
             </Link>
-            <nav className="hidden lg:flex items-center gap-9">
-                <a className="text-text-main text-sm font-medium leading-normal hover:text-primary transition-colors"
-                   href="#">Now Showing</a>
-                <a className="text-text-main text-sm font-medium leading-normal hover:text-primary transition-colors"
-                   href="#">Coming Soon</a>
-                <a className="text-text-main text-sm font-medium leading-normal hover:text-primary transition-colors"
-                   href="#">Cinemas</a>
-                <a className="text-text-main text-sm font-medium leading-normal hover:text-primary transition-colors"
-                   href="#">Offers</a>
-            </nav>
             <div className="flex items-center gap-3">
                 { user ? (
                     <Link
