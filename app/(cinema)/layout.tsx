@@ -26,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
     <body className="bg-background font-display text-text-main">
     <div className="relative flex min-h-screen w-full flex-col">
         <div className="flex h-full grow flex-col">
