@@ -34,6 +34,7 @@ async function fetchAPI<T>(endpoint: string, options: FetchOptions = {}): Promis
             ...options.headers, // Pozwala nadpisać nagłówki w razie potrzeby
         },
     };
+    console.log(options)
 
     // Usuwamy slash na początku endpointu, jeśli jest, żeby uniknąć podwójnego //
     const cleanEndpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
@@ -47,6 +48,7 @@ async function fetchAPI<T>(endpoint: string, options: FetchOptions = {}): Promis
             if (res.status === 401) {
                 console.warn('Token wygasł lub jest nieprawidłowy');
             }
+            console.log(cleanEndpoint)
             throw new Error(`API Error: ${res.status} ${res.statusText}`);
         }
 

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Genre, Movie } from '@/types/movie';
+import Link from "next/link";
 
 interface MovieGalleryProps {
     movies: Movie[];
@@ -29,7 +30,7 @@ export default function MovieGallery({ movies, genres }: MovieGalleryProps) {
     return (
         <div className="mt-16">
             <h2 className="text-text-main text-3xl font-bold leading-tight tracking-tight px-4 pb-4 pt-5">
-                Now Showing
+                Najnowsze premiery
             </h2>
 
             {/* Pasek Kategorii */}
@@ -37,7 +38,7 @@ export default function MovieGallery({ movies, genres }: MovieGalleryProps) {
                 <button
                     onClick={() => setSelectedGenre('All')}
                     className={getButtonClass(selectedGenre === 'All')}>
-                    All
+                    Wszystkie
                 </button>
 
                 {genres.map((genre) => (
@@ -54,7 +55,7 @@ export default function MovieGallery({ movies, genres }: MovieGalleryProps) {
             <div className="grid grid-cols-[repeat(auto-fill,minmax(180px,1fr))] gap-8 p-4">
                 {filteredMovies.length > 0 ? (
                     filteredMovies.map((movie) => (
-                        <div key={movie.id} className="flex flex-col gap-3 cursor-pointer group neumorphic-card-hover transition-all">
+                        <Link href={`/movie/${movie.id}`} key={movie.id} className="flex flex-col gap-3 cursor-pointer group neumorphic-card-hover transition-all">
                             {/* PLAKAT - Używamy placeholdera, bo brak w DTO */}
                             <div
                                 className="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl neumorphic-outset relative overflow-hidden"
@@ -81,12 +82,12 @@ export default function MovieGallery({ movies, genres }: MovieGalleryProps) {
                                     {movie.duration} min
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     ))
                 ) : (
                     <div className="col-span-full text-center py-12 text-gray-500">
                         <span className="material-symbols-outlined text-4xl mb-2">videocam_off</span>
-                        <p>No movies found for category: {selectedGenre}</p>
+                        <p>Nie znaleziono filmów z kategorii: {selectedGenre}</p>
                     </div>
                 )}
             </div>
