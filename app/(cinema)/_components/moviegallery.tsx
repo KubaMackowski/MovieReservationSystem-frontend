@@ -61,7 +61,7 @@ export default function MovieGallery({ movies, genres }: MovieGalleryProps) {
                                 className="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl neumorphic-outset relative overflow-hidden"
                                 style={{
                                     // Generujemy tło z tytułem filmu, skoro nie ma URL w bazie
-                                    backgroundImage: `url('https://placehold.co/400x600/1e1b29/FFF?text=${encodeURIComponent(movie.title)}')`
+                                    backgroundImage: `url('${movie.posterPath}')`
                                 }}
                             >
                                 {/* Opcjonalnie: Nakładka hover */}

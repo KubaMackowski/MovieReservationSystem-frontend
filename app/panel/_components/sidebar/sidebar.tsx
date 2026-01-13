@@ -14,16 +14,22 @@ export default function Sidebar(user: UserProfile) {
                     </div>
                     <nav className="flex flex-col gap-2">
                         <Link className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-surface-dark-hover  transition-colors group"
-                              href="/panel/users">
+                              href="/panel/genres">
+                            <span
+                                className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">category</span>
+                            <p className="text-gray-400 group-hover:text-white text-sm font-medium leading-normal">Gatunki</p>
+                        </Link>
+                        <Link className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-surface-dark-hover  transition-colors group"
+                              href="/panel/movies">
                             <span
                                 className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">movie</span>
-                            <p className="text-gray-400 group-hover:text-white text-sm font-medium leading-normal">Movies</p>
+                            <p className="text-gray-400 group-hover:text-white text-sm font-medium leading-normal">Filmy</p>
                         </Link>
                         <Link className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-surface-dark-hover  transition-colors group"
                            href="/panel/users">
                             <span
                                 className="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors">group</span>
-                            <p className="text-gray-400 group-hover:text-white text-sm font-medium leading-normal">Users</p>
+                            <p className="text-gray-400 group-hover:text-white text-sm font-medium leading-normal">Użytkownicy</p>
                         </Link>
                     </nav>
                 </div>

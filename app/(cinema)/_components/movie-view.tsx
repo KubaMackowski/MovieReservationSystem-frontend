@@ -54,7 +54,7 @@ export interface Movie {
     duration: number
     cast: string
     director: string
-    poster?: { url: string }
+    posterPath?: string
     movieGenres: MovieGenre[]
     showings: Showing[]
 }
@@ -172,7 +172,7 @@ export default function MovieView({ movie, userId }: MovieViewProps) {
                 <div
                     className="absolute inset-0 bg-cover bg-center movie-backdrop opacity-40 transition-all duration-700"
                     style={{
-                        backgroundImage: movie.poster ? `url(${movie.poster.url})` : "none",
+                        backgroundImage: movie.posterPath ? `url(${movie.posterPath})` : "none",
                         filter: "blur(20px)",
                     }}
                 ></div>
@@ -182,7 +182,7 @@ export default function MovieView({ movie, userId }: MovieViewProps) {
                     <div
                         className="w-48 h-72 rounded-xl neumorphic-outset bg-center bg-cover flex-shrink-0 hidden md:block shadow-2xl"
                         style={{
-                            backgroundImage: movie.poster ? `url(${movie.poster.url})` : "none",
+                            backgroundImage: movie.posterPath ? `url(${movie.posterPath})` : "none",
                             backgroundColor: "#333",
                         }}
                     ></div>

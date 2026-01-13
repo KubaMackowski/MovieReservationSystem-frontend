@@ -16,5 +16,6 @@ export interface Movie {
     production: string;
     cast: string;
     genres: string[]; // List<string> z C#
+    posterPath: string;
     // Brakuje posterUrl w Twoim DTO, więc obsłużymy to w komponencie
 }
