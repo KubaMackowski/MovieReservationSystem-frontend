@@ -107,3 +107,13 @@ export async function registerAction(prevState: FormState, formData: FormData): 
 
     redirect('/login?registered=true')
 }
+
+export async function logoutAction() {
+    const cookieStore = await cookies()
+
+    // Usuwamy ciasteczko sesyjne
+    cookieStore.delete('session_token')
+
+    // Przekierowujemy na stronę logowania
+    redirect('/login')
+}
