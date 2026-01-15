@@ -7,7 +7,7 @@
     git clone https://github.com/KubaMackowski/MovieReservationSystem-frontend.git
     git clone https://github.com/KubaMackowski/MovieReservationSystem-backend.git
     ```
-2. **Uruchom kontener docker w repozytorium bazcken, a następnie na repozytorium frontend:**
+2. **Uruchom kontener docker w repozytorium backend, a następnie na repozytorium frontend:**
     ```sh
     docker-compose up -d --build
     ```
