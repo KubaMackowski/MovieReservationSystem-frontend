@@ -2,6 +2,8 @@
 
 ## Uruchomienie aplikacji
 
+Do uruchomienia aplikacji wymagana jest aplikacja Docker
+
 1. **Sklonuj repozytoria:**
     ```sh
     git clone https://github.com/KubaMackowski/MovieReservationSystem-frontend.git
