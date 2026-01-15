@@ -15,17 +15,33 @@ export default function Navbar(user: UserProfile | null = null) {
                 <h2 className="text-text-main text-xl font-bold leading-tight tracking-tight">CineSoft</h2>
             </Link>
             <div className="flex items-center gap-3">
-                { user ? (
-                    <Link
-                        href="/panel"
-                        className="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full neumorphic-outset neumorphic-button-hover neumorphic-button-active transition-all">
-                        <span className="material-symbols-outlined text-text-main">person</span>
-                    </Link>
+                {user ? (
+                    <div className="flex items-center gap-3">
+                        {/* Przycisk Panelu Administratora (Tylko dla ADMIN) */}
+                        {user.roles?.includes('ADMIN') && (
+                            <Link
+                                href="/panel/movies" // lub /panel, zależy gdzie masz dashboard
+                                className="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full neumorphic-outset neumorphic-button-hover neumorphic-button-active transition-all"
+                                title="Panel Administratora"
+                            >
+                                <span className="material-symbols-outlined text-text-main">dashboard</span>
+                            </Link>
+                        )}
+
+                        {/* Przycisk Profilu (Dla każdego zalogowanego) */}
+                        <Link
+                            href="/profile"
+                            className="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full neumorphic-outset neumorphic-button-hover neumorphic-button-active transition-all"
+                            title="Twój Profil"
+                        >
+                            <span className="material-symbols-outlined text-text-main">person</span>
+                        </Link>
+                    </div>
                 ) : (
                     <Link
                         href="/login"
                         className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-background text-sm font-bold leading-normal tracking-wide neumorphic-button-hover neumorphic-button-active transition-all">
-                        <span className="truncate">Sign Up</span>
+                        <span className="truncate">Zaloguj się</span>
                     </Link>
                 )}
             </div>

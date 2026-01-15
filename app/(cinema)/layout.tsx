@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Merito Cinema",
+  title: "CineSoft Entertainment - Filmy i seriale w Poznaniu",
   description: "Najlepsze kino w Poznaniu",
 };
 
