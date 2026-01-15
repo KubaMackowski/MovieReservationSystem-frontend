@@ -16,5 +16,7 @@
 
 Dodatkowe usługi to:
 http://localhost:5050  -  PgAdmin (login: admin@domena.pl hasło: supersecretpass)
+
 Hasło do bazy danych to: postgrespass
+
 http://localhost:8080/swagger  -  Dokumentacja API
