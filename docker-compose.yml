@@ -10,9 +10,9 @@ services:
     container_name: frontend-app
     # 1. USUNIĘTE PORTY: Nie wystawiamy już portu 3000 na zewnątrz hosta.
     # Aplikacja jest bezpiecznie ukryta w Dockera, a ruch z zewnątrz wpuszcza tylko Traefik.
-    volumes:
-      - .:/app
-      - /app/node_modules
+#    volumes:
+#      - .:/app
+#      - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
     labels:
