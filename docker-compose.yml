@@ -6,18 +6,34 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: frontend-app
-    ports:
-      - "3000:3000"
+    # 1. USUNIĘTE PORTY: Nie wystawiamy już portu 3000 na zewnątrz hosta.
+    # Aplikacja jest bezpiecznie ukryta w Dockera, a ruch z zewnątrz wpuszcza tylko Traefik.
     volumes:
       - .:/app
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
-      - BACKEND_URL=http://backend-api:8080
+      # 2. ZMIANA ADRESU API: Jeśli to aplikacja typu SPA (React/Vue/Angular),
+      # przeglądarka użytkownika musi odpytywać publiczny adres API.
+      - BACKEND_URL=https://api.cinesoft.pl
+    labels:
+      # 3. ETYKIETY TRAEFIKA: Automatyczny routing i darmowy certyfikat SSL
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`cinesoft.pl`) || Host(`www.cinesoft.pl`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.routers.frontend.tls.certresolver=myresolver"
+      # Wskazujemy wewnętrzny port kontenera dla Traefika
+      - "traefik.http.services.frontend.loadbalancer.server.port=3000"
     networks:
+      # 4. SIECI: Kontener musi być w sieci Traefika, aby odbierać ruch ze świata.
+      - traefik-public
+      # Zostawiłem Twoją starą sieć, aby Frontend nadal mógł komunikować się
+      # bezpośrednio z Backendem (jeśli np. robisz Server-Side Rendering w Next.js).
       - default
 
 networks:
+  traefik-public:
+    external: true
   default:
     name: movie-system-network
     external: true
