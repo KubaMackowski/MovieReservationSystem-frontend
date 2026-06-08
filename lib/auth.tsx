@@ -9,7 +9,7 @@ export async function getMe(): Promise<UserProfile | null> {
         return null
     }
 
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8080'
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'
 
     try {
         const res = await fetch(`${backendUrl}/api/auth/me`, {

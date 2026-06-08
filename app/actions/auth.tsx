@@ -16,7 +16,7 @@ export async function loginAction(prevState: FormState, formData: FormData): Pro
         return { message: 'Wypełnij wszystkie pola.' }
     }
 
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8080'
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'
 
     try {
         const response = await fetch(`${backendUrl}/api/auth/login`, {
@@ -78,7 +78,7 @@ export async function registerAction(prevState: FormState, formData: FormData): 
         return { message: 'Hasła muszą być identyczne.' }
     }
 
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8080'
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'
 
     try {
         const response = await fetch(`${backendUrl}/api/auth/register`, {
