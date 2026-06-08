@@ -9,6 +9,8 @@ COPY package.json package-lock.json ./
 
 # Zainstaluj zależności
 RUN npm install
+
+COPY . .
 # --- PRZECHWYCENIE ZMIENNEJ PODCZAS BUDOWANIA ---
 ARG NEXT_PUBLIC_BACKEND_URL
 ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
@@ -20,4 +22,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Komenda, która domyślnie uruchomi serwer deweloperski
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
