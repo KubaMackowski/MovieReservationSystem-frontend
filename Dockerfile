@@ -9,7 +9,13 @@ COPY package.json package-lock.json ./
 
 # Zainstaluj zależności
 RUN npm install
+# --- PRZECHWYCENIE ZMIENNEJ PODCZAS BUDOWANIA ---
+ARG NEXT_PUBLIC_BACKEND_URL
+ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
+# -----------------------------------------------
 
+# Zbuduj aplikację (w tym momencie Next.js "wkleja" adres API do plików frontendu)
+RUN npm run build
 # Wystaw port dla serwera deweloperskiego Next.js
 EXPOSE 3000
 

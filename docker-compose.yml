@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_BACKEND_URL=https://api.cinesoft.pl
     container_name: frontend-app
     # 1. USUNIĘTE PORTY: Nie wystawiamy już portu 3000 na zewnątrz hosta.
     # Aplikacja jest bezpiecznie ukryta w Dockera, a ruch z zewnątrz wpuszcza tylko Traefik.
@@ -13,9 +15,6 @@ services:
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
-      # 2. ZMIANA ADRESU API: Jeśli to aplikacja typu SPA (React/Vue/Angular),
-      # przeglądarka użytkownika musi odpytywać publiczny adres API.
-      - BACKEND_URL=https://api.cinesoft.pl
     labels:
       # 3. ETYKIETY TRAEFIKA: Automatyczny routing i darmowy certyfikat SSL
       - "traefik.enable=true"
