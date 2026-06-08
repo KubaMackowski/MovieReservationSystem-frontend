@@ -14,11 +14,11 @@ export default function UsersPage() {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 20;
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (id: string) => {
         if (confirm('Czy na pewno chcesz usunąć tego użytkownika? Tej operacji nie można cofnąć.')) {
             const result = await deleteUser(id);
             if (result.success) {
-                setUsers(prev => prev.filter(u => u.id !== id));
+                setUsers(prev => prev.filter(u => String(u.id) !== String(id)));
             } else {
                 alert(result.error);
             }
